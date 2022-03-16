@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:lab5.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="452" d:DesignHeight="502"
+        x:Class="lab5.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+		MaxHeight="502"
+		MaxWidth="452"
+        Title="lab5">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<StackPanel Orientation="Vertical">
+		<StackPanel Orientation="Horizontal" Margin="0.5, 0">
+
+			<TextBox Name="InputTB" Height="400" Width="225" Background="WhiteSmoke" Margin="0.5, 0.5" BorderBrush="DarkGray"
+				 FontSize="20"  AcceptsReturn="True" TextWrapping="Wrap"
+				 VerticalContentAlignment="Top" BorderThickness="1" Text="{Binding Path}" Watermark="{Binding Watermark}">
+			</TextBox>
+			
+			<TextBox Name="OutputTB" Height="400" Width="225" Background="WhiteSmoke" Margin="0.5, 0.5" BorderBrush="DarkGray"
+				 FontSize="20" HorizontalContentAlignment="Left" AcceptsReturn="True" TextWrapping="Wrap"
+				 VerticalContentAlignment="Top" BorderThickness="1" Focusable="False" IsHitTestVisible="False"
+					 Text="{Binding RegexByLine}">
+			</TextBox>
+			
+		</StackPanel>
+		
+		<StackPanel Orientation="Horizontal" Margin="0.5, 0">
+
+			<Button Name="OpenButton" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="225" MinHeight="50"
+				HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"
+				 >Open File</Button>
+			
+			<Button Name="SaveButton" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="225" MinHeight="50"
+				HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"
+				 >Save File</Button>
+
+		</StackPanel>
+
+		<Button Name="RegexButton" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="450" MinHeight="50"
+				HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Margin = "1, 0"
+			 Click="SetRegexClick">Set Regex</Button>
+		
+	</StackPanel>
+
+</Window>
